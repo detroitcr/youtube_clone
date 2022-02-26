@@ -11,9 +11,18 @@ class CrText extends StatelessWidget {
   final Color? color;
   // For Fontfamily
   final String? family;
+  // For styling the text
+  final TextStyle? style;
+  // For avoid over flow maybe
+  final TextOverflow? overflow;
+  // For max line
+  final int? maxlines;
 
   const CrText({
     Key? key,
+    this.maxlines,
+    this.style,
+    this.overflow,
     required this.text,
     this.color,
     this.size,
@@ -25,12 +34,15 @@ class CrText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: TextStyle(
-        color: color ?? Colors.black,
-        fontSize: size ?? 24,
-        fontFamily: family,
-        fontWeight: weight ?? FontWeight.w700,
-      ),
+      maxLines: maxlines ?? 2,
+      overflow: overflow,
+      style: style ??
+          TextStyle(
+            color: color ?? Colors.white,
+            fontSize: size ?? 14,
+            fontFamily: family,
+            fontWeight: weight ?? FontWeight.w500,
+          ),
     );
   }
 }
