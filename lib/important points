@@ -20,3 +20,66 @@ return Stack(
     );
 
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // Miniplayer(
+                          //   controller: miniPlayerController,
+                          //   minHeight: _playerMinHeight,
+                          //   maxHeight: MediaQuery.of(context).size.height,
+                          //   builder: (height, percentage) {
+                          //     if (selectedVideo == null) return const SizedBox.shrink();
+
+                          //     if (height <= _playerMinHeight + 50.0)
+                          //       return Container(
+                            // color: Theme.of(context).scaffoldBackgroundColor,
+                                  // child: Column(
+                                  //   children: [
+                                  //     Row(
+                                  //       children: [
+                                  //         Image.network(
+                                  //           selectedVideo.thumbnailUrl,
+                                  //           height: _playerMinHeight - 4.0,
+                                  //           width: 120.0,
+                                  //           fit: BoxFit.cover,
+                                  //         ),

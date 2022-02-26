@@ -9,7 +9,7 @@ import 'package:youtube_u/screens/video_screen.dart';
 import '../models/data.dart';
 
 //key to manage state
-final selectedVideoProvieder = StateProvider<Video?>((ref) => null);
+final selectedVideoProvider = StateProvider<Video?>((ref) => null);
 // for mini player controller
 
 final miniPlayerControllerProvider =
@@ -59,7 +59,7 @@ class _NavScreenState extends State<NavScreen> {
           builder: (context, watch, _) {
             final miniPlayerController =
                 watch(miniPlayerControllerProvider).state;
-            final selectedVideo = watch(selectedVideoProvieder).state;
+            final selectedVideo = watch(selectedVideoProvider).state;
             print(selectedVideo);
             return Stack(
               children: _screens
@@ -75,93 +75,115 @@ class _NavScreenState extends State<NavScreen> {
                   )
                   .values
                   .toList()
-                ..add(Offstage(
-                  offstage: selectedVideo == null,
-                  child: Miniplayer(
-                    controller: miniPlayerController,
-                    minHeight: _playerMinHeight,
-                    maxHeight: MediaQuery.of(context).size.height,
-                    builder: (height, percentage) {
-                      if (selectedVideo == null) return const SizedBox.shrink();
+                ..add(
+                  Offstage(
+                    offstage: selectedVideo == null,
+                    child: Miniplayer(
+                      controller: miniPlayerController,
+                      minHeight: _playerMinHeight,
+                      maxHeight: MediaQuery.of(context).size.height,
+                      builder: (height, percentage) {
+                        if (selectedVideo == null)
+                          return const SizedBox.shrink();
 
-                      if (height <= _playerMinHeight + 50.0)
-                        return Container(
-                          color: Theme.of(context).scaffoldBackgroundColor,
-                          child: Column(
-                            children: [
-                              Row(
-                                children: [
-                                  Image.network(
-                                    selectedVideo.thumbnailUrl,
-                                    height: _playerMinHeight - 4.0,
-                                    width: 120.0,
-                                    fit: BoxFit.cover,
-                                  ),
-                                  Expanded(
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          Flexible(
-                                            child: CrText(
-                                              text: selectedVideo.title,
-                                              overflow: TextOverflow.ellipsis,
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .caption!
-                                                  .copyWith(
-                                                    color: Colors.white,
-                                                    fontWeight: FontWeight.w500,
-                                                  ),
+                        if (height <= _playerMinHeight + 50.0)
+                          return Container(
+                            color: Theme.of(context).scaffoldBackgroundColor,
+                            child: Column(
+                              children: [
+                                Row(
+                                  children: [
+                                    Image.network(
+                                      selectedVideo.thumbnailUrl,
+                                      height: _playerMinHeight - 4.0,
+                                      width: 120.0,
+                                      fit: BoxFit.cover,
+                                    ),
+                                    Expanded(
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Flexible(
+                                              
+                                              child: Text(
+                                                selectedVideo.title,
+                                                overflow: TextOverflow.ellipsis,
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .caption!
+                                                    .copyWith(
+                                                      color: Colors.white,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
+                                              ),
+// Qestion why my custom widget show error bottom over flowed
+                                              // CrText(
+                                              //   text: selectedVideo.title,
+                                              //   overflow: TextOverflow.ellipsis,
+                                              //   style: Theme.of(context)
+                                              //       .textTheme
+                                              //       .caption!
+                                              //       .copyWith(
+                                              //         color: Colors.white,
+                                              //         fontWeight:
+                                              //             FontWeight.w500,
+                                              //       ),
+                                              // ),
                                             ),
-                                          ),
-                                          Flexible(
-                                            child: CrText(
-                                              text:
-                                                  '${selectedVideo.author.username}',
-                                              overflow: TextOverflow.ellipsis,
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .caption!
-                                                  .copyWith(
-                                                    //color: Colors.white,
-                                                    fontWeight: FontWeight.w500,
-                                                  ),
+
+
+                                            
+                                            Flexible(
+                                              child: CrText(
+                                                text:
+                                                    '${selectedVideo.author.username}',
+                                                overflow: TextOverflow.ellipsis,
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .caption!
+                                                    .copyWith(
+                                                      //color: Colors.white,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
+                                              ),
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  IconButton(
-                                    onPressed: () {},
-                                    icon: const Icon(Icons.play_arrow),
-                                  ),
-                                  IconButton(
-                                    onPressed: () {
-                                      context
-                                          .read(selectedVideoProvieder)
-                                          .state = null;
-                                    },
-                                    icon: const Icon(Icons.close),
-                                  ),
-                                ],
-                              ),
-                              const LinearProgressIndicator(
-                                value: 0.4,
-                                valueColor:
-                                    AlwaysStoppedAnimation<Color>(Colors.red),
-                              ),
-                            ],
-                          ),
-                        );
-                      return VideoScreen();
-                    },
+                                    IconButton(
+                                      onPressed: () {},
+                                      icon: const Icon(Icons.play_arrow),
+                                    ),
+                                    IconButton(
+                                      onPressed: () {
+                                        context
+                                            .read(selectedVideoProvider)
+                                            .state = null;
+                                      },
+                                      icon: const Icon(Icons.close),
+                                    ),
+                                  ],
+                                ),
+                                const LinearProgressIndicator(
+                                  value: 0.4,
+                                  valueColor:
+                                      AlwaysStoppedAnimation<Color>(Colors.red),
+                                ),
+                              ],
+                            ),
+                          );
+                        return VideoScreen();
+                      },
+                    ),
                   ),
-                )),
+                ),
             );
           },
         ),

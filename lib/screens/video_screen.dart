@@ -48,7 +48,7 @@ class _VideoScreenState extends State<VideoScreen> {
                 SliverToBoxAdapter(
                   child: Consumer(
                     builder: (context, watch, _) {
-                      final selectedVideo = watch(selectedVideoProvieder).state;
+                      final selectedVideo = watch(selectedVideoProvider).state;
                       return Column(
                         children: [
                           Stack(

@@ -21,7 +21,7 @@ class VideoCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.read(selectedVideoProvieder).state = video;
+        context.read(selectedVideoProvider).state = video;
         context
             .read(miniPlayerControllerProvider)
             .state
