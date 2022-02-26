@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:youtube_u/Responsive/responsive_size.dart';
 import 'package:youtube_u/custom_widgets/custom_text.dart';
 import 'package:youtube_u/models/data.dart';
 import 'package:timeago/timeago.dart' as timeago;
@@ -20,8 +21,8 @@ class VideoInfo extends StatelessWidget {
             style:
                 Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 15.0),
           ),
-          const SizedBox(
-            height: 8.0,
+          SizedBox(
+            height: SizeConfig.deviceHeight * 0.0112,
           ),
           CrText(
             text:
@@ -66,7 +67,7 @@ class _ActionRow extends StatelessWidget {
         children: [
           Icon(icon),
           SizedBox(
-            height: 6.0,
+            height: SizeConfig.deviceHeight * 0.008,
           ),
           CrText(
             text: label,
@@ -96,8 +97,8 @@ class _AuthorInfo extends StatelessWidget {
           CircleAvatar(
             foregroundImage: NetworkImage(user.profileImageUrl),
           ),
-          const SizedBox(
-            width: 8.0,
+          SizedBox(
+            width: SizeConfig.deviceWidth * 0.024,
           ),
           Expanded(
             child: Column(

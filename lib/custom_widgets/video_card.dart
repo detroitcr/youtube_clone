@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:miniplayer/miniplayer.dart';
+import 'package:youtube_u/Responsive/responsive_size.dart';
 import 'package:youtube_u/custom_widgets/custom_text.dart';
 import 'package:timeago/timeago.dart' as timeago;
 import 'package:youtube_u/screens/nav_screen.dart';
@@ -19,6 +20,7 @@ class VideoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return GestureDetector(
       onTap: () {
         context.read(selectedVideoProvider).state = video;
@@ -37,7 +39,7 @@ class VideoCard extends StatelessWidget {
                     EdgeInsets.symmetric(horizontal: hasPadding ? 12.0 : 0),
                 child: Image.network(
                   video.thumbnailUrl,
-                  height: 220.0,
+                  height: SizeConfig.deviceHeight * 0.291,
                   width: double.infinity,
                   fit: BoxFit.cover,
                 ),
@@ -72,7 +74,9 @@ class VideoCard extends StatelessWidget {
                     foregroundImage: NetworkImage(video.author.profileImageUrl),
                   ),
                 ),
-                const SizedBox(width: 8.0),
+                SizedBox(
+                  width: SizeConfig.deviceWidth * 0.024,
+                ),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -115,151 +119,3 @@ class VideoCard extends StatelessWidget {
     );
   }
 }
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-//                Container(
-//                 padding: const EdgeInsets.all(4.0),
-//                 color: Colors.black,
-//                 child: CrText(
-//                   text: video.duration,
-//                   style: Theme.of(context).textTheme.caption!.copyWith(
-//                         color: Colors.white,
-//                       ),
-//                 ),
-
-//                 //  Text(
-//                 //   video.duration,
-//                 //   style: Theme.of(context)
-//                 //       .textTheme
-//                 //       .caption!
-//                 //       .copyWith(color: Colors.white),
-//                 // )
-//               ),
-//             ),
-//             Padding(
-//               padding: const EdgeInsets.all(12.0),
-//               child: Row(
-//                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                 crossAxisAlignment: CrossAxisAlignment.start,
-//                 children: [
-//                   GestureDetector(
-//                     onTap: () {
-//                       print('tap');
-//                     },
-//                     child: CircleAvatar(
-//                       foregroundImage:
-//                           NetworkImage(video.author.profileImageUrl),
-//                     ),
-//                   ),
-
-//                   const SizedBox(
-//                     width: 8.0,
-//                   ),
-
-//                   /// we use Expanded widget so renderflex is solverd
-//                   Expanded(
-//                     child: Column(
-//                       crossAxisAlignment: CrossAxisAlignment.start,
-//                       mainAxisSize: MainAxisSize.min,
-//                       children: [
-//                         Flexible(
-//                           child: CrText(
-//                             text: video.title,
-//                             maxlines: 2,
-//                             overflow: TextOverflow.ellipsis,
-//                             style:
-//                                 Theme.of(context).textTheme.bodyText1!.copyWith(
-//                                       fontSize: 15.0,
-//                                     ),
-//                           ),
-//                         ),
-//                         Flexible(
-//                           child: CrText(
-//                             text:
-//                                 '${video.author.username} * ${video.viewCount} views * ${timeago.format(video.timestamp)}',
-//                             maxlines: 2,
-//                             overflow: TextOverflow.ellipsis,
-//                             style:
-//                                 Theme.of(context).textTheme.caption!.copyWith(
-//                                       fontSize: 14.0,
-//                                     ),
-//                           ),
-//                         ),
-//                       ],
-//                     ),
-//                   ),
-//                   GestureDetector(
-//                     onTap: () {},
-//                     child: Icon(
-//                       Icons.more_vert,
-//                       size: 20.0,
-//                     ),
-//                   ),
-//                 ],
-//               ),
-//             ),
-//           ],
-//         ),
-//       ],
-//     );
-//   }
-// }

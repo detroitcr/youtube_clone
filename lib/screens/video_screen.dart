@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:miniplayer/miniplayer.dart';
+import 'package:youtube_u/Responsive/responsive_size.dart';
 import 'package:youtube_u/custom_widgets/video_card.dart';
 import 'package:youtube_u/custom_widgets/video_info.dart';
 import 'package:youtube_u/models/data.dart';
@@ -30,6 +31,7 @@ class _VideoScreenState extends State<VideoScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return SafeArea(
       child: GestureDetector(
         onTap: () {
@@ -55,7 +57,7 @@ class _VideoScreenState extends State<VideoScreen> {
                             children: [
                               Image.network(
                                 selectedVideo!.thumbnailUrl,
-                                height: 220.0,
+                                height: SizeConfig.deviceHeight * 0.291,
                                 width: double.infinity,
                                 fit: BoxFit.cover,
                               ),

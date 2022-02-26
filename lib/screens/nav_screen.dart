@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:miniplayer/miniplayer.dart';
+import 'package:youtube_u/Responsive/responsive_size.dart';
 
 import 'package:youtube_u/custom_widgets/custom_text.dart';
 import 'package:youtube_u/screens/home_screen.dart';
@@ -53,6 +54,7 @@ class _NavScreenState extends State<NavScreen> {
   ];
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return SafeArea(
       child: Scaffold(
         body: Consumer(
@@ -96,7 +98,10 @@ class _NavScreenState extends State<NavScreen> {
                                     Image.network(
                                       selectedVideo.thumbnailUrl,
                                       height: _playerMinHeight - 4.0,
-                                      width: 120.0,
+                                      width: SizeConfig.deviceWidth * 0.334,
+
+                                  
+
                                       fit: BoxFit.cover,
                                     ),
                                     Expanded(
@@ -108,7 +113,6 @@ class _NavScreenState extends State<NavScreen> {
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
                                             Flexible(
-                                              
                                               child: Text(
                                                 selectedVideo.title,
                                                 overflow: TextOverflow.ellipsis,
@@ -135,9 +139,6 @@ class _NavScreenState extends State<NavScreen> {
                                               //       ),
                                               // ),
                                             ),
-
-
-                                            
                                             Flexible(
                                               child: CrText(
                                                 text:
