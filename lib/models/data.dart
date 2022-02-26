@@ -3,14 +3,14 @@ class User {
   final String profileImageUrl;
   final String subscribers;
 
- User({
+  User({
     required this.username,
     required this.profileImageUrl,
     required this.subscribers,
   });
 }
 
- User currentUser = User(
+User currentUser = User(
   username: 'Vikas Kumar',
   profileImageUrl:
       'https://yt3.ggpht.com/ytc/AAUvwniE2k5PgFu9yr4sBVEs9jdpdILdMc7ruiPw59DpS0k=s88-c-k-c0x00ffffff-no-rj',
@@ -79,6 +79,105 @@ final List<Video> videos = [
 ];
 
 final List<Video> suggestedVideos = [
+  Video(
+    id: 'rJKN_880b-M',
+    author: currentUser,
+    title: 'Flutter Netflix Clone Responsive UI Tutorial | Web and Mobile',
+    thumbnailUrl: 'https://i.ytimg.com/vi/rJKN_880b-M/0.jpg',
+    duration: '1:13:15',
+    timestamp: DateTime(2020, 8, 22),
+    viewCount: '32K',
+    likes: '1.9k',
+    dislikes: '7',
+  ),
+  Video(
+    id: 'HvLb5gdUfDE',
+    author: currentUser,
+    title: 'Flutter Facebook Clone Responsive UI Tutorial | Web and Mobile',
+    thumbnailUrl: 'https://i.ytimg.com/vi/HvLb5gdUfDE/0.jpg',
+    duration: '1:52:12',
+    timestamp: DateTime(2020, 8, 7),
+    viewCount: '190K',
+    likes: '9.3K',
+    dislikes: '45',
+  ),
+  Video(
+    id: 'h-igXZCCrrc',
+    author: currentUser,
+    title: 'Flutter Chat UI Tutorial | Apps From Scratch',
+    thumbnailUrl: 'https://i.ytimg.com/vi/h-igXZCCrrc/0.jpg',
+    duration: '1:03:58',
+    timestamp: DateTime(2019, 10, 17),
+    viewCount: '358K',
+    likes: '20k',
+    dislikes: '85',
+  ),
+  Video(
+    id: 'rJKN_880b-M',
+    author: currentUser,
+    title: 'Flutter Netflix Clone Responsive UI Tutorial | Web and Mobile',
+    thumbnailUrl: 'https://i.ytimg.com/vi/rJKN_880b-M/0.jpg',
+    duration: '1:13:15',
+    timestamp: DateTime(2020, 8, 22),
+    viewCount: '32K',
+    likes: '1.9k',
+    dislikes: '7',
+  ),
+  Video(
+    id: 'HvLb5gdUfDE',
+    author: currentUser,
+    title: 'Flutter Facebook Clone Responsive UI Tutorial | Web and Mobile',
+    thumbnailUrl: 'https://i.ytimg.com/vi/HvLb5gdUfDE/0.jpg',
+    duration: '1:52:12',
+    timestamp: DateTime(2020, 8, 7),
+    viewCount: '190K',
+    likes: '9.3K',
+    dislikes: '45',
+  ),
+  Video(
+    id: 'h-igXZCCrrc',
+    author: currentUser,
+    title: 'Flutter Chat UI Tutorial | Apps From Scratch',
+    thumbnailUrl: 'https://i.ytimg.com/vi/h-igXZCCrrc/0.jpg',
+    duration: '1:03:58',
+    timestamp: DateTime(2019, 10, 17),
+    viewCount: '358K',
+    likes: '20k',
+    dislikes: '85',
+  ),
+  Video(
+    id: 'rJKN_880b-M',
+    author: currentUser,
+    title: 'Flutter Netflix Clone Responsive UI Tutorial | Web and Mobile',
+    thumbnailUrl: 'https://i.ytimg.com/vi/rJKN_880b-M/0.jpg',
+    duration: '1:13:15',
+    timestamp: DateTime(2020, 8, 22),
+    viewCount: '32K',
+    likes: '1.9k',
+    dislikes: '7',
+  ),
+  Video(
+    id: 'HvLb5gdUfDE',
+    author: currentUser,
+    title: 'Flutter Facebook Clone Responsive UI Tutorial | Web and Mobile',
+    thumbnailUrl: 'https://i.ytimg.com/vi/HvLb5gdUfDE/0.jpg',
+    duration: '1:52:12',
+    timestamp: DateTime(2020, 8, 7),
+    viewCount: '190K',
+    likes: '9.3K',
+    dislikes: '45',
+  ),
+  Video(
+    id: 'h-igXZCCrrc',
+    author: currentUser,
+    title: 'Flutter Chat UI Tutorial | Apps From Scratch',
+    thumbnailUrl: 'https://i.ytimg.com/vi/h-igXZCCrrc/0.jpg',
+    duration: '1:03:58',
+    timestamp: DateTime(2019, 10, 17),
+    viewCount: '358K',
+    likes: '20k',
+    dislikes: '85',
+  ),
   Video(
     id: 'rJKN_880b-M',
     author: currentUser,
