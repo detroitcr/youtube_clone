@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:miniplayer/miniplayer.dart';
 import 'package:youtube_u/Responsive/responsive_size.dart';
+import 'package:youtube_u/custom_widgets/custom_icon_button.dart';
 
 import 'package:youtube_u/custom_widgets/custom_text.dart';
 import 'package:youtube_u/screens/home_screen.dart';
@@ -99,9 +100,6 @@ class _NavScreenState extends State<NavScreen> {
                                       selectedVideo.thumbnailUrl,
                                       height: _playerMinHeight - 4.0,
                                       width: SizeConfig.deviceWidth * 0.334,
-
-                                  
-
                                       fit: BoxFit.cover,
                                     ),
                                     Expanded(
@@ -158,17 +156,16 @@ class _NavScreenState extends State<NavScreen> {
                                         ),
                                       ),
                                     ),
-                                    IconButton(
-                                      onPressed: () {},
-                                      icon: const Icon(Icons.play_arrow),
-                                    ),
-                                    IconButton(
-                                      onPressed: () {
+                                    CustomIconButton(
+                                        icon: const Icon(Icons.play_arrow),
+                                        onpressed: () {}),
+                                    CustomIconButton(
+                                      icon: const Icon(Icons.close),
+                                      onpressed: () {
                                         context
                                             .read(selectedVideoProvider)
                                             .state = null;
                                       },
-                                      icon: const Icon(Icons.close),
                                     ),
                                   ],
                                 ),

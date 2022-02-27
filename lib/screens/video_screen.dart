@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:miniplayer/miniplayer.dart';
 import 'package:youtube_u/Responsive/responsive_size.dart';
+import 'package:youtube_u/custom_widgets/custom_icon_button.dart';
 import 'package:youtube_u/custom_widgets/video_card.dart';
 import 'package:youtube_u/custom_widgets/video_info.dart';
 import 'package:youtube_u/models/data.dart';
@@ -61,15 +62,15 @@ class _VideoScreenState extends State<VideoScreen> {
                                 width: double.infinity,
                                 fit: BoxFit.cover,
                               ),
-                              IconButton(
-                                onPressed: () {
+                              CustomIconButton(
+                                icon: const Icon(Icons.keyboard_arrow_down),
+                                onpressed: () {
                                   context
                                       .read(miniPlayerControllerProvider)
                                       .state
                                       .animateToHeight(state: PanelState.MIN);
                                 },
-                                icon: const Icon(Icons.keyboard_arrow_down),
-                                iconSize: 30.0,
+                                size: 30.0,
                               ),
                             ],
                           ),
