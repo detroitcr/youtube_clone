@@ -34,7 +34,7 @@ class CrText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      maxLines: maxlines ?? 2,
+      maxLines: maxlines,
       overflow: overflow,
       style: style ??
           TextStyle(

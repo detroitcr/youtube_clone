@@ -111,8 +111,8 @@ class _NavScreenState extends State<NavScreen> {
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
                                             Flexible(
-                                              child: Text(
-                                                selectedVideo.title,
+                                              child: CrText(
+                                                text: selectedVideo.title,
                                                 overflow: TextOverflow.ellipsis,
                                                 style: Theme.of(context)
                                                     .textTheme
@@ -123,19 +123,6 @@ class _NavScreenState extends State<NavScreen> {
                                                           FontWeight.w500,
                                                     ),
                                               ),
-// Qestion why my custom widget show error bottom over flowed
-                                              // CrText(
-                                              //   text: selectedVideo.title,
-                                              //   overflow: TextOverflow.ellipsis,
-                                              //   style: Theme.of(context)
-                                              //       .textTheme
-                                              //       .caption!
-                                              //       .copyWith(
-                                              //         color: Colors.white,
-                                              //         fontWeight:
-                                              //             FontWeight.w500,
-                                              //       ),
-                                              // ),
                                             ),
                                             Flexible(
                                               child: CrText(
